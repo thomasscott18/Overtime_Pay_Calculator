@@ -1,0 +1,34 @@
+hours = input("Enter Hours: ")
+rate = input("Enter Rate: ")
+
+if int(hours) <= 40:
+  pay = int(hours) * int(rate)
+  print("You have earned $" + str(pay))
+
+else:
+  overtime_hours = int(hours) - 40
+  overtime_pay = int(overtime_hours) * int(rate) * 1.5
+  base_pay = int(hours) * int(rate)
+  total_pay = int(overtime_pay) + int(base_pay)
+  print("You have earned $" + str(total_pay))
+  
+ -----------------------------------------------------------------------------------------------
+ # same code while also including a define function feature. still not sure how to effectively define a function so that it can be used in both the "if" and "else" parts of this code
+ 
+ 
+hours = input("Enter Hours: ")
+rate = input("Enter Rate: ")
+
+if int(hours) <= 40:
+    def computepay(hours, rate):
+        pay = int(hours) * int(rate)
+        return pay
+    print(computepay(hours, rate))
+    
+else:
+    overtime_hours = int(hours) - 40
+    additional_pay = int(overtime_hours) * int(rate) * 1.5
+    def computepay(hours, rate):
+        overtime = int(additional_pay) + 40 * int(rate)
+        return overtime
+    print(computepay(hours, rate))
